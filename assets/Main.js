@@ -20,11 +20,12 @@ function Main() {
       <Routes>
         <Route exact path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          {/* <Route exact path="/search/:keyword" element={<BlogList />} /> */}
           <Route path="/blog" element={<BlogList />} />
+          <Route exact path="/blog/:title" element={<BlogList />} />
           <Route path="/create" element={<BlogCreate />} />
           <Route path="/edit/:id" element={<BlogEdit />} />
           <Route path="/show/:id" element={<BlogShow />} />
-          <Route exact path="/contact" element={<Contact />} />
         </Route>
       </Routes>
     </BrowserRouter>
@@ -34,7 +35,7 @@ function Main() {
 export default Main;
 const root = ReactDOM.createRoot(document.getElementById("app"));
 root.render(
-  <React.StrictMode>
-    <Main />
-  </React.StrictMode>
+  // <React.StrictMode>
+  <Main />
+  // </React.StrictMode>
 );

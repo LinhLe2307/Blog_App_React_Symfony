@@ -1,16 +1,108 @@
-@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Raleway&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Dosis&family=Raleway&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-color: rgb(187, 90, 58);
+  --font-color: white;
 }
 
 body {
-    background-color: #ecf0f3 !important;
-    font-family: 'Raleway', sans-serif;
+  background-color: #ecf0f3 !important;
+  font-family: "Raleway", sans-serif;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
+li {
+  list-style: none;
+}
+
+label {
+  display: block !important;
+  margin-top: 2.5rem;
+}
+
+footer {
+  background-color: var(--bg-color);
+  color: var(--font-color);
+}
+
+footer a {
+  color: var(--font-color);
+}
+textarea,
+.text-line {
+  border: none;
+  border-bottom: 1px solid #000000;
+  padding: 2px;
+  width: 250px;
+  font-size: 14px;
+  background: transparent;
+}
+
+textarea {
+  overflow-y: scroll;
+  height: 26px;
+  resize: none;
+}
+
+textarea:focus,
+input:focus {
+  border-bottom: 1px solid #000000;
+  outline: none;
+}
+
+.row {
+  --bs-gutter-x: 5rem !important;
+}
+
+.home-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.home-img {
+  width: 400px;
+}
+
+.blog-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 59rem;
+  margin: 0 auto;
+}
+
+.blog-item {
+  border: 1px solid #ccc;
+  width: fit-content;
+  border-radius: 5px;
+}
+
+.blog-description {
+  margin: 2rem;
+}
+
+#contacts {
+  background-color: rgb(255, 239, 236);
+  padding: 4rem 0 3rem;
+  margin-top: 2rem;
+}
+
+.container-img {
+  width: 17rem;
+}
+
+#btnSubmit {
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  width: 9rem;
+  height: 2.5rem;
+  margin-top: 2rem;
+}

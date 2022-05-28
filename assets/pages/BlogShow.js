@@ -19,9 +19,9 @@ const BlogShow = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>{blog.title}</h1>
-      <img src={blog.image} />
+      <img className="container-img" src={blog.image} />
       <h1>{blog.description}</h1>
     </div>
   );

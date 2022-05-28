@@ -41,7 +41,7 @@ class BlogController extends AbstractController
         $project->setTitle($request->request->get('title'));
         $project->setDescription($request->request->get('description'));
         $project->setImage($request->request->get('image'));
-        $project->setDate($request->request->get('date'));
+        $project->setDate(new \DateTime());
 
         // tell Doctrine you want to (eventually) save the Product (no queries yet)
         $em->persist($project);

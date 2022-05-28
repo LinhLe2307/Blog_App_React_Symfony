@@ -1,30 +1,43 @@
-import React from 'react'
+import React from "react";
 
 const Contact = () => {
   return (
-    <div>
-      <h2>Let me know what's on your mind</h2>
-      <form>
-        <div>
-          <label>First Name</label>
-          <input text="text" />
+    <div
+      id="contacts"
+      className="d-flex flex-column justify-content-center align-items-center"
+    >
+      <h2>Let us know what's on your mind</h2>
+      <form className="d-flex flex-column">
+        <div className="row gx-5">
+          <div className="col">
+            <label>First Name</label>
+            <input type="text" className="text-line" />
+          </div>
+          <div className="col">
+            <label>Last Name</label>
+            <input type="text" className="text-line" />
+          </div>
         </div>
-        <div>
-          <label>Last Name</label>
-          <input text="text" />
+        <div className="row gx-5">
+          <div className="col">
+            <label>Email Name</label>
+            <input type="text" className="text-line" />
+          </div>
+          <div className="col">
+            <label>Leave us a message</label>
+            <textarea></textarea>
+          </div>
         </div>
-        <div>
-          <label>Email Name</label>
-          <input text="text" />
-        </div>
-        <div>
-          <label>Leave us a message</label>
-          <input text="text" />
-        </div>
-        <button type="submit">Submit</button>
+        <button
+          type="submit"
+          className="btn align-self-center mb-5"
+          id="btnSubmit"
+        >
+          Submit
+        </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

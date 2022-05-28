@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
 
 const BlogList = () => {
   const [blogList, setBlogList] = useState([]);
+  const [filterList, setFilterList] = useState([]);
+  const title = useParams().title?.replaceAll("-", " ");
 
   const fetchBlogList = () => {
     axios
       .get("/api/blog")
-      .then((response) => setBlogList(response.data))
+      .then((response) => {
+        setBlogList(response.data);
+        setFilterList(response.data);
+      })
       .catch((error) => console.log(error));
   };
-
-  useEffect(() => fetchBlogList(), []);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -48,20 +51,43 @@ const BlogList = () => {
       }
     });
   };
+
+  const filterBlogs = () => {
+    const newList = blogList.filter((blog) => {
+      return blog.title.toLowerCase().indexOf(title.toLowerCase()) !== -1;
+    });
+    console.log(newList);
+    setFilterList(newList);
+  };
+
+  useEffect(() => {
+    fetchBlogList();
+  }, []);
+
+  useEffect(() => {
+    console.log("title", title);
+    title ? filterBlogs() : setFilterList(blogList);
+  }, [title]);
+
   return (
     <div>
-      <h1>Hllo</h1>
-      <ul>
-        {blogList.map((blog) => {
+      <Link to={`/create`}>+ New Post</Link>
+      <ul className="blog-items">
+        {filterList.map((blog) => {
           return (
-            <li key={blog.id}>
-              <img src={blog.image} />
-              <h3>{blog.title}</h3>
-              <div>{blog.description}</div>
-              <button>
-                <Link to={`/show/${blog.id}`}>Show</Link>
-              </button>
-              <button onClick={() => handleDelete(blog.id)}>Delete</button>
+            <li className="blog-item" key={blog.id}>
+              <img className="container-img" src={blog.image} />
+              <div className="blog-description">
+                <h3>
+                  <Link to={`/show/${blog.id}`}>{blog.title}</Link>
+                </h3>
+                <p>{blog.date.date.slice(0, 11)}</p>
+                <p>{blog.description}</p>
+                <button>
+                  <Link to={`/show/${blog.id}`}>Read more</Link>
+                </button>
+                <button onClick={() => handleDelete(blog.id)}>Delete</button>
+              </div>
             </li>
           );
         })}
