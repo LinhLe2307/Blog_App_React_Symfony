@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// import Layout from "../components/Layout";
 import Swal from "sweetalert2";
 import axios from "axios";
-import Body from "./Body";
 
 const BlogCreate = () => {
   const [title, setTitle] = useState("");

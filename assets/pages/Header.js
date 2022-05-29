@@ -6,7 +6,6 @@ const Header = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // setInputField("");
   };
 
   // Input from users
@@ -34,12 +33,13 @@ const Header = () => {
               onChange={handleChange}
               defaultValue={inputField}
               placeholder="Search..."
+              id="search-input"
             />
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" id="btnSearch">
               <Link to={`/blog/${inputField}`} className="text-light">
-                Submit
-              </Link>
-            </button>
+              Submit
+            </Link></button>
+
           </form>
 
           <ul className="nav">
