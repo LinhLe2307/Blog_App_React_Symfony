@@ -4,19 +4,37 @@ import Swal from "sweetalert2";
 import axios from "axios";
 
 const BlogList = () => {
-  const [blogList, setBlogList] = useState([]);
-  const [filterList, setFilterList] = useState([]);
   const title = useParams().title?.replaceAll("-", " ");
+  const [blogList, setBlogList] = useState();
+  const [filterList, setFilterList] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchBlogList = () => {
+    setIsLoading(true);
     axios
       .get("/api/blog")
       .then((response) => {
         setBlogList(response.data);
         setFilterList(response.data);
+        setIsLoading(false);
       })
       .catch((error) => console.log(error));
   };
+
+  const filterBlogs = () => {
+    const newList = blogList?.filter((blog) => {
+      return blog.title.toLowerCase().indexOf(title?.toLowerCase()) !== -1;
+    });
+    setFilterList(newList);
+  };
+
+  useEffect(() => {
+    fetchBlogList();
+  }, []);
+
+  useEffect(() => {
+    title ? filterBlogs() : setFilterList(blogList);
+  }, [title, blogList]);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -51,29 +69,14 @@ const BlogList = () => {
       }
     });
   };
-
-  const filterBlogs = () => {
-    const newList = blogList.filter((blog) => {
-      return blog.title.toLowerCase().indexOf(title.toLowerCase()) !== -1;
-    });
-    console.log(newList);
-    setFilterList(newList);
-  };
-
-  useEffect(() => {
-    fetchBlogList();
-  }, []);
-
-  useEffect(() => {
-    console.log("title", title);
-    title ? filterBlogs() : setFilterList(blogList);
-  }, [title]);
-
+  if (isLoading) {
+    return <p>...Loading</p>;
+  }
   return (
     <div>
       <Link to={`/create`}>+ New Post</Link>
       <ul className="blog-items">
-        {filterList.map((blog) => {
+        {filterList?.map((blog) => {
           return (
             <li className="blog-item" key={blog.id}>
               <img className="container-img" src={blog.image} />

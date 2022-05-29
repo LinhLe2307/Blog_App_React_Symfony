@@ -22,7 +22,10 @@ const BlogShow = () => {
     <div className="container">
       <h1>{blog.title}</h1>
       <img className="container-img" src={blog.image} />
-      <h1>{blog.description}</h1>
+      <p>{blog.description}</p>
+      <button>
+        <Link to={`/edit/${id}`}>Edit</Link>
+      </button>
     </div>
   );
 };

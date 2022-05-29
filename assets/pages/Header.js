@@ -11,7 +11,6 @@ const Header = () => {
 
   // Input from users
   const handleChange = (e) => {
-    // console.log(e.target.value);
     //in case someone has put spaces in the input and format it to look nicer in the URL using +
     const inputFormat = e.target.value.trim().replaceAll(" ", "-");
     setInputField(inputFormat);
@@ -25,7 +24,7 @@ const Header = () => {
           id="navbarSupportedContent"
         >
           <h1 className="ml-5">
-            <Link to="/">Linh Le</Link>
+            <Link to="/">Blog App</Link>
           </h1>
 
           {/* Send the inputField as :keyword to SearchPage to display it in URL and useParams().keyword to fetch query*/}

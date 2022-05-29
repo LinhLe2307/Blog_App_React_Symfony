@@ -25,7 +25,7 @@ const Contact = () => {
           </div>
           <div className="col">
             <label>Leave us a message</label>
-            <textarea></textarea>
+            <textarea className="textarea-line"></textarea>
           </div>
         </div>
         <button
