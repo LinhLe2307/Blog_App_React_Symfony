@@ -12,16 +12,12 @@ const BlogCard = ({ blog, handleDelete }) => {
         </h6>
         <Link to={`/show/${blog.id}`}>
           <h3>{blog.title}</h3>
-          <p>{blog.description}</p>
+          <p className="display-description">{blog.description}</p>
         </Link>
         <div className="d-flex justify-content-end">
-          {/* <button>
-            <Link to={`/show/${blog.id}`}>Read more</Link>
-          </button> */}
-
           <button
             onClick={() => handleDelete(blog.id)}
-            class="material-symbols-rounded"
+            className="material-symbols-rounded"
           >
             delete
           </button>

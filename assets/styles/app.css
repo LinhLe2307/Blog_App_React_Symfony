@@ -6,12 +6,13 @@
 }
 
 :root {
-  --bg-color: rgb(187, 90, 58);
+  --bg-footer: rgb(187, 90, 58);
+  --bg-color: #ecf0f3 !important;
   --font-color: white;
 }
 
 body {
-  background-color: #ecf0f3 !important;
+  background-color: var(--bg-color);
   font-family: "Raleway", sans-serif;
 }
 
@@ -29,7 +30,7 @@ label {
 }
 
 footer {
-  background-color: var(--bg-color);
+  background-color: var(--bg-footer);
   color: var(--font-color);
 }
 
@@ -72,6 +73,18 @@ button {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 6px;
+  position: relative;
+  text-align: center;
+  /* color: white; */
+  margin-bottom: 5rem;
+}
+
+.welcome-text {
+  position: absolute;
+  bottom: -45px;
+  background-color: var(--bg-color);
+  padding: 1rem;
+  right: 500px;
 }
 
 .home-img {
@@ -99,7 +112,11 @@ button {
 #contact {
   background-color: rgb(255, 239, 236);
   padding: 4rem 0 3rem;
-  margin-top: 2rem;
+  margin-top: 4rem;
+}
+
+.link-wrapper {
+  margin: 2rem;
 }
 
 .container {
@@ -115,11 +132,17 @@ button {
 }
 
 #btnSubmit {
-  background-color: var(--bg-color);
+  background-color: var(--bg-footer);
   color: var(--font-color);
   width: 9rem;
   height: 2.5rem;
   margin-top: 2rem;
+}
+
+.display-description {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 #search-input {
@@ -134,7 +157,7 @@ button {
   margin-left: -65px;
   height: 2rem;
   width: 65px;
-  background-color: var(--bg-color);
+  background-color: var(--bg-footer);
   color: white;
   border: 0;
   border-radius: 0 5px 5px 0;
@@ -158,17 +181,30 @@ button {
 
 .popUpText {
   background-color: white;
-  width: 20rem;
-  height: 20rem;
+  width: 25rem;
+  height: 10rem;
   /* text-align: center; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  padding: 1rem;
   border-radius: 5px;
 }
 
 .date {
   font-size: 12px;
+}
+
+.show-description {
+  font-size: 18px !important;
+  /* width: 1000px; */
+  /* text-align: left;
+  margin: 0 5rem; */
+  margin: auto;
+  max-width: 70%;
+  /* border: 3px solid green; */
+  padding: 10px;
+  word-break: break-all;
+  word-wrap: break-word;
 }

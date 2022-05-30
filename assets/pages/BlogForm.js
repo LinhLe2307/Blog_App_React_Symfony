@@ -8,7 +8,8 @@ const BlogForm = ({
   setImage,
   setDescription,
   handleSave,
-  isSaving
+  isSaving,
+  buttonName,
 }) => {
   return (
     <div className="card-body">
@@ -19,11 +20,12 @@ const BlogForm = ({
             onChange={(event) => {
               setTitle(event.target.value);
             }}
-            defaultValue={title}
+            value={title}
             type="text"
             className="form-control"
             id="title"
             name="title"
+            required
           />
         </div>
         <div className="form-group">
@@ -32,11 +34,12 @@ const BlogForm = ({
             onChange={(event) => {
               setImage(event.target.value);
             }}
-            defaultValue={image}
+            value={image}
             type="text"
             className="form-control"
             id="image"
             name="image"
+            required
           />
         </div>
         <div className="form-group">
@@ -45,22 +48,22 @@ const BlogForm = ({
             onChange={(event) => {
               setDescription(event.target.value);
             }}
-            defaultValue={description}
-            type="text"
+            value={description}
             className="form-control"
             id="description"
             rows="3"
             name="description"
+            required
           ></textarea>
         </div>
         <div></div>
         <button
           disabled={isSaving}
           onClick={handleSave}
-          type="button"
+          type="submit"
           className="btn btn-outline-primary mt-3"
         >
-          Save Project
+          {buttonName}
         </button>
       </form>
     </div>

@@ -37,9 +37,9 @@ const Header = () => {
             />
             <button type="submit" id="btnSearch">
               <Link to={`/blog/${inputField}`} className="text-light">
-              Submit
-            </Link></button>
-
+                Submit
+              </Link>
+            </button>
           </form>
 
           <ul className="nav">

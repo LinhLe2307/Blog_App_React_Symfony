@@ -84,7 +84,6 @@ class BlogController extends AbstractController
         $project->setTitle($content->title);
         $project->setDescription($content->description);
         $project->setImage($content->image);
-        // $project->setDate($content->date);
         $project->setDate(new \DateTime());
         $em->flush();
 

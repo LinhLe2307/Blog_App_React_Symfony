@@ -25,6 +25,7 @@ const BlogEdit = () => {
   };
 
   const handleSave = () => {
+    setIsSaving(true);
     axios
       .patch(`/api/blog/${id}`, {
         title: title,
@@ -42,7 +43,6 @@ const BlogEdit = () => {
         setIsSaving(false);
       })
       .catch((error) => {
-        console.log(error);
         Swal.fire({
           icon: "error",
           title: "An error occurred",
@@ -60,6 +60,11 @@ const BlogEdit = () => {
     <div className="container">
       <div>BlogEdit</div>
       <div className="card">
+        <div className="card-header">
+          <Link className="btn btn-outline-info float-right" to={`/show/${id}`}>
+            View Blog
+          </Link>
+        </div>
         <BlogForm
           title={title}
           image={image}
@@ -69,6 +74,7 @@ const BlogEdit = () => {
           setDescription={setDescription}
           handleSave={handleSave}
           isSaving={isSaving}
+          buttonName="Update Blog"
         />
       </div>
     </div>
