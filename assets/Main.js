@@ -20,7 +20,6 @@ function Main() {
       <Routes>
         <Route exact path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          {/* <Route exact path="/search/:keyword" element={<BlogList />} /> */}
           <Route path="/blog" element={<BlogList />} />
           <Route exact path="/blog/:title" element={<BlogList />} />
           <Route path="/create" element={<BlogCreate />} />

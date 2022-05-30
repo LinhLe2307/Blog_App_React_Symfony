@@ -6,11 +6,11 @@ import Header from "../pages/Header";
 
 const Layout = () => {
   return (
-    <div className="container">
+    <>
       <Header />
       <Body />
       <Footer />
-    </div>
+    </>
   );
 };
 

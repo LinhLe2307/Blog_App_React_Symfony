@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
+import BlogCard from "./BlogCard";
+import { exampleBlogs } from "../exampleBlogs";
 
 const BlogList = () => {
   const title = useParams().title?.replaceAll("-", " ");
@@ -72,26 +74,24 @@ const BlogList = () => {
   if (isLoading) {
     return <p>...Loading</p>;
   }
+
   return (
     <div>
       <Link to={`/create`}>+ New Post</Link>
       <ul className="blog-items">
+        {/* Display all the examples blogs when there are no blogs */}
+        {blogList?.length === 0 &&
+          exampleBlogs.map((exampleBlog) => (
+            <BlogCard
+              blog={exampleBlog}
+              handleDelete={handleDelete}
+              key={exampleBlog.id}
+            />
+          ))}
+
         {filterList?.map((blog) => {
           return (
-            <li className="blog-item" key={blog.id}>
-              <img className="container-img" src={blog.image} />
-              <div className="blog-description">
-                <h3>
-                  <Link to={`/show/${blog.id}`}>{blog.title}</Link>
-                </h3>
-                <p>{blog.date.date.slice(0, 11)}</p>
-                <p>{blog.description}</p>
-                <button>
-                  <Link to={`/show/${blog.id}`}>Read more</Link>
-                </button>
-                <button onClick={() => handleDelete(blog.id)}>Delete</button>
-              </div>
-            </li>
+            <BlogCard blog={blog} handleDelete={handleDelete} key={blog.id} />
           );
         })}
       </ul>

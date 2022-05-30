@@ -3,12 +3,14 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import BlogForm from "./BlogForm";
 
 const BlogEdit = () => {
   const id = useParams().id;
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
+  const [isSaving, setIsSaving] = useState(false);
 
   const fetchBlog = () => {
     axios
@@ -37,6 +39,7 @@ const BlogEdit = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        setIsSaving(false);
       })
       .catch((error) => {
         console.log(error);
@@ -46,6 +49,7 @@ const BlogEdit = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        setIsSaving(false);
       });
   };
 
@@ -53,37 +57,21 @@ const BlogEdit = () => {
     fetchBlog();
   }, []);
   return (
-    <>
+    <div className="container">
       <div>BlogEdit</div>
-      <form>
-        <h1>
-          <input
-            type="text"
-            name="title"
-            defaultValue={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </h1>
-        <p>
-          <input
-            type="text"
-            name="image"
-            defaultValue={image}
-            onChange={(e) => setImage(e.target.value)}
-          />
-        </p>
-        <p>
-          <textarea
-            name="description"
-            defaultValue={description}
-            onChange={(e) => setDescription(e.target.value)}
-          ></textarea>
-        </p>
-        <button type="submit" onClick={handleSave}>
-          <Link to={`/show/${id}`}>Save</Link>
-        </button>
-      </form>
-    </>
+      <div className="card">
+        <BlogForm
+          title={title}
+          image={image}
+          description={description}
+          setTitle={setTitle}
+          setImage={setImage}
+          setDescription={setDescription}
+          handleSave={handleSave}
+          isSaving={isSaving}
+        />
+      </div>
+    </div>
   );
 };
 

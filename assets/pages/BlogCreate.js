@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
+import BlogForm from "./BlogForm";
 
 const BlogCreate = () => {
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState();
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
   const [isSaving, setIsSaving] = useState(false);
@@ -30,6 +31,7 @@ const BlogCreate = () => {
         setDescription("");
       })
       .catch(function (error) {
+        console.log(error.response.data);
         Swal.fire({
           icon: "error",
           title: "An error occurred",
@@ -48,58 +50,16 @@ const BlogCreate = () => {
             View All Project
           </Link>
         </div>
-        <div className="card-body">
-          <form>
-            <div className="body-group">
-              <label htmlFor="title">Title</label>
-              <input
-                onChange={(event) => {
-                  setTitle(event.target.value);
-                }}
-                value={title}
-                type="text"
-                className="form-control"
-                id="title"
-                name="title"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="image">Image URL</label>
-              <input
-                onChange={(event) => {
-                  setImage(event.target.value);
-                }}
-                value={image}
-                type="text"
-                className="form-control"
-                id="image"
-                name="image"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="description">Description</label>
-              <textarea
-                onChange={(event) => {
-                  setDescription(event.target.value);
-                }}
-                value={description}
-                type="text"
-                className="form-control"
-                id="description"
-                rows="3"
-                name="name"
-              ></textarea>
-            </div>
-            <button
-              disabled={isSaving}
-              onClick={handleSave}
-              type="button"
-              className="btn btn-outline-primary mt-3"
-            >
-              Save Project
-            </button>
-          </form>
-        </div>
+        <BlogForm
+          title={title}
+          image={image}
+          description={description}
+          setTitle={setTitle}
+          setImage={setImage}
+          setDescription={setDescription}
+          handleSave={handleSave}
+          isSaving={isSaving}
+        />
       </div>
     </div>
   );

@@ -17,7 +17,6 @@ body {
 
 a {
   text-decoration: none;
-
 }
 
 li {
@@ -36,6 +35,10 @@ footer {
 
 footer a {
   color: var(--font-color);
+}
+
+button {
+  border-radius: 5px;
 }
 
 .textarea-line,
@@ -68,11 +71,11 @@ footer a {
 .home-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 6px;
 }
 
 .home-img {
-  width: 400px;
+  width: 470px;
 }
 
 .blog-items {
@@ -84,12 +87,13 @@ footer a {
 
 .blog-item {
   border: 1px solid #ccc;
-  width: fit-content;
+  width: 300px;
   border-radius: 5px;
+  word-wrap: break-word;
 }
 
 .blog-description {
-  margin: 2rem;
+  margin: 1.5rem;
 }
 
 #contact {
@@ -98,8 +102,16 @@ footer a {
   margin-top: 2rem;
 }
 
+.container {
+  position: relative;
+}
+
 .container-img {
-  width: 17rem;
+  max-width: 400px;
+}
+
+.card-im {
+  max-width: 100%;
 }
 
 #btnSubmit {
@@ -126,4 +138,37 @@ footer a {
   color: white;
   border: 0;
   border-radius: 0 5px 5px 0;
+}
+
+.popUp {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  color: black;
+}
+
+.popUpText {
+  background-color: white;
+  width: 20rem;
+  height: 20rem;
+  /* text-align: center; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 5px;
+}
+
+.date {
+  font-size: 12px;
 }
