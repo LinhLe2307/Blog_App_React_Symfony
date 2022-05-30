@@ -14,6 +14,8 @@
 body {
   background-color: var(--bg-color);
   font-family: "Raleway", sans-serif;
+  max-width: 1600px;
+  text-align: center;
 }
 
 a {
@@ -96,6 +98,7 @@ button {
   grid-template-columns: repeat(3, 1fr);
   width: 59rem;
   margin: 0 auto;
+  gap: 1rem;
 }
 
 .blog-item {
@@ -208,3 +211,9 @@ button {
   word-break: break-all;
   word-wrap: break-word;
 }
+
+/* @media (min-width: 768px) {
+ .home-container {
+
+ }
+} */
