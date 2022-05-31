@@ -6,7 +6,8 @@
 }
 
 :root {
-  --bg-footer: rgb(187, 90, 58);
+  /* --bg-footer: rgb(187, 90, 58); */
+  --bg-footer: rgb(58, 127, 187);
   --bg-color: #ecf0f3 !important;
   --font-color: white;
 }
@@ -15,11 +16,11 @@ body {
   background-color: var(--bg-color);
   font-family: "Raleway", sans-serif;
   max-width: 1600px;
-  text-align: center;
 }
 
 a {
   text-decoration: none;
+  color: var(--bg-footer);
 }
 
 li {
@@ -113,7 +114,8 @@ button {
 }
 
 #contact {
-  background-color: rgb(255, 239, 236);
+  /* background-color: rgb(236, 250, 255); */
+  /* background-color: rgb(255, 239, 236); */
   padding: 4rem 0 3rem;
   margin-top: 4rem;
 }
@@ -201,15 +203,16 @@ button {
 
 .show-description {
   font-size: 18px !important;
-  /* width: 1000px; */
-  /* text-align: left;
-  margin: 0 5rem; */
   margin: auto;
   max-width: 70%;
-  /* border: 3px solid green; */
   padding: 10px;
   word-break: break-all;
   word-wrap: break-word;
+}
+
+.btn-showup {
+  background-color: var(--bg-footer);
+  color: white;
 }
 
 /* @media (min-width: 768px) {

@@ -34,23 +34,23 @@ const BlogShow = () => {
   };
 
   return (
-    <div>
-      <h3>
+    <div style={{ paddingTop: "2rem" }}>
+      <h4>
         <Link to="/blog" className="link-wrapper">
           All posts
         </Link>
-      </h3>
+      </h4>
       <div className="d-flex justify-content-center align-items-center flex-column gap-3">
         <p>{today.toDateString("en-US", blog.date?.date.slice(0, 11))}</p>
         <h1>{blog.title}</h1>
         <img className="container-img" src={blog.image} />
         <p className="show-description">{blog.description}</p>
         {["breakfast", "lunch", "dinner"].includes(id) ? (
-          <button onClick={() => setIsPopup(true)} className="btn btn-primary">
+          <button onClick={() => setIsPopup(true)} className="btn btn-showup">
             Edit
           </button>
         ) : (
-          <button className="btn btn-primary">
+          <button className="btn btn-showup">
             <Link to={`/edit/${id}`} style={{ color: "white" }}>
               Edit
             </Link>

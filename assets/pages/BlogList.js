@@ -82,12 +82,12 @@ const BlogList = () => {
   }
 
   return (
-    <div>
-      <h3>
+    <div style={{ paddingTop: "2rem" }}>
+      <h4>
         <Link to={`/create`} className="link-wrapper">
           + New Post
         </Link>
-      </h3>
+      </h4>
       <ul className="blog-items">
         {/* Display all the examples blogs when there are no blogs */}
         {blogList?.length === 0 &&

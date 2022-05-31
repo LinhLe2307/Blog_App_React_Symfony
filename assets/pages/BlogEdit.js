@@ -58,7 +58,7 @@ const BlogEdit = () => {
   }, []);
   return (
     <div className="container">
-      <div>BlogEdit</div>
+      <h1 className="text-center m-4">BlogEdit</h1>
       <div className="card">
         <div className="card-header">
           <Link className="btn btn-outline-info float-right" to={`/show/${id}`}>

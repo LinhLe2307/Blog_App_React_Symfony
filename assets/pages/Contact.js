@@ -6,31 +6,35 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('gmail', 'blog_template', e.target, 'JgVe0jEEd03wg5njc')
-      .then((result) => {
-        Swal.fire({
-          icon: "success",
-          title: "Email sent successfully",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        console.log(result.text);
-      }, (error) => {
-        Swal.fire({
-          icon: "error",
-          title: "An error occurred",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        console.log(error.text);
-      });
+    emailjs
+      .sendForm("gmail", "blog_template", e.target, "JgVe0jEEd03wg5njc")
+      .then(
+        (result) => {
+          Swal.fire({
+            icon: "success",
+            title: "Email sent successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          console.log(result.text);
+        },
+        (error) => {
+          Swal.fire({
+            icon: "error",
+            title: "An error occurred",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          console.log(error.text);
+        }
+      );
     e.target.reset();
-  }
+  };
 
   return (
     <div
       id="contact"
-      className="d-flex flex-column justify-content-center align-items-center"
+      className="d-flex flex-column justify-content-center align-items-center bg-light"
     >
       <h2>Let me know what's on your mind</h2>
       <form className="d-flex flex-column" onSubmit={sendEmail}>
