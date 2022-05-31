@@ -11,7 +11,7 @@ This is a school project where users can add new blog posts, edit or delete it.
    - Rename database to `DATABASE_NAME=BlogFullStack101 `.
 6. Check PHPAdmin database: whether or not there is a database named "BlogFullStack101"
 7. Go to Docker and use CLI in PORT:8007
-   -`cd web`
+   - `cd web`
    - run `php bin/console make:migration` 
    - then run `php bin/console doctrine:migrations:migrate` to migrate the tables in the database
 8. Run webpack encore using following command
