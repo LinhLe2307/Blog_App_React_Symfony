@@ -17,7 +17,7 @@ const BlogCard = ({ blog, handleDelete }) => {
         <div className="d-flex justify-content-end">
           <button
             onClick={() => handleDelete(blog.id)}
-            className="material-symbols-rounded"
+            className="btn-delete material-symbols-rounded"
           >
             delete
           </button>

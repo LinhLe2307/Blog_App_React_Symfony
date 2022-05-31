@@ -16,6 +16,7 @@ body {
   background-color: var(--bg-color);
   font-family: "Raleway", sans-serif;
   max-width: 1600px;
+  margin: 0 auto;
 }
 
 a {
@@ -76,8 +77,8 @@ button {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 6px;
-  position: relative;
   text-align: center;
+  position: relative;
   /* color: white; */
   margin-bottom: 5rem;
 }
@@ -97,8 +98,9 @@ button {
 .blog-items {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  width: 59rem;
+  width: 60rem;
   margin: 0 auto;
+  padding: 0 auto;
   gap: 1rem;
 }
 
@@ -107,6 +109,7 @@ button {
   width: 300px;
   border-radius: 5px;
   word-wrap: break-word;
+  position: relative;
 }
 
 .blog-description {
@@ -213,6 +216,12 @@ button {
 .btn-showup {
   background-color: var(--bg-footer);
   color: white;
+}
+
+.btn-delete {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
 }
 
 /* @media (min-width: 768px) {
